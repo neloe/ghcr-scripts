@@ -23,7 +23,7 @@ cd ..
 for repo in `ls -d *`; do
   echo Providing Feedback: $repo
   cd $repo
-  git remote set-url origin $(git remote -v |head -n 1 |grep -o 'github\.com.*git' | awk -F\/ '{print "git@"$1"/"$2":"$3}')
+  git remote set-url origin $(git remote -v |head -n 1 |grep -o 'github\.com.*git' | awk -F\/ '{print "git@"$1":"$2"/"$3}')
   [[ ! -z "$feedback_branch" ]] && git branch $feedback_branch
   [[ ! -z "$feedback_branch" ]] && git checkout $feedback_branch
 
